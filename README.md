@@ -3,6 +3,8 @@ node-odbc
 
 An asynchronous interface for Node.js to unixODBC and its supported drivers.
 
+This is a fork to support the required 64bit integer data types from node-addon-api (NAPI)
+
 requirements
 ------------
 
