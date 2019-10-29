@@ -1,15 +1,15 @@
 {
   "name": "odbc",
   "description": "unixodbc bindings for node",
-  "version": "2.2.2",
-  "homepage": "http://github.com/markdirish/node-odbc/",
+  "version": "2.2.2-1",
+  "homepage": "https://github.com/AISAutomation/node-odbc/",
   "main": "./lib/odbc.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/markdirish/node-odbc.git"
+    "url": "git://github.com/AISAutomation/node-odbc.git"
   },
   "bugs": {
-    "url": "https://github.com/markdirish/node-odbc/issues"
+    "url": "https://github.com/AISAutomation/node-odbc/issues"
   },
   "contributors": [
     {
@@ -23,6 +23,10 @@
     {
       "name": "Lee Smith",
       "email": "notwink@gmail.com"
+    },
+    {
+      "name": "Stephan Wolf",
+      "email": "stephan.wolf@ais-automation.com"
     }
   ],
   "license": "MIT",
