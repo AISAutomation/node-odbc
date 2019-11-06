@@ -8,11 +8,11 @@
         'src/odbc_statement.cpp',
         'src/dynodbc.cpp'
       ],
-      'cflags' : ['-Wall', '-Wextra', '-Wno-unused-parameter', '-DNAPI_DISABLE_CPP_EXCEPTIONS', '-DNAPI_EXPERIMENTAL', '-DNAPI_VERSION=2147483647'],
+      'cflags' : ['-Wall', '-Wextra', '-Wno-unused-parameter', '-DNAPI_DISABLE_CPP_EXCEPTIONS', ],
       'include_dirs': [
         '<!@(node -p "require(\'node-addon-api\').include")'
       ],
-      'defines' : [],
+      'defines' : [ 'NAPI_EXPERIMENTAL' ],
       'conditions' : [
         [ 'OS == "linux"', {
           'libraries' : [
