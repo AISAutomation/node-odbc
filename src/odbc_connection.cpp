@@ -351,9 +351,14 @@ Napi::Array ODBCConnection::ProcessDataForNapi(Napi::Env env, QueryData *data, N
             value = Napi::Number::New(env, *(int*)storedRow[j].data);
             break;
           // Napi::BigInt
-          case SQL_BIGINT:
-            value = Napi::BigInt::New(env, *(int64_t*)storedRow[j].data);
-            break;
+	  case SQL_BIGINT:
+#if NAPI_EXPERIMENTAL
+	    value = Napi::BigInt::New(env, *(int64_t*)storedRow[j].data);
+#else
+	    value = Napi::Number::New(env, *(double*)storedRow[j].data);
+#endif
+	    break;
+
           // Napi::ArrayBuffer
           case SQL_BINARY :
           case SQL_VARBINARY :
@@ -862,8 +867,12 @@ void ODBCConnection::ParametersToArray(Napi::Reference<Napi::Array> *napiParamet
             break;
           // Napi::BigInt
           case SQL_BIGINT:
-            value = Napi::BigInt::New(env, *(int64_t*)parameters[i]->ParameterValuePtr);
-            break;
+#if NAPI_EXPERIMENTAL
+	    value = Napi::BigInt::New(env, *(int64_t*)parameters[i]->ParameterValuePtr);
+#else
+	    value = Napi::Number::New(env, *(double*)parameters[i]->ParameterValuePtr);
+#endif
+	    break;
           // Napi::ArrayBuffer
           case SQL_BINARY:
           case SQL_VARBINARY:
